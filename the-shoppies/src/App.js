@@ -15,7 +15,7 @@ function App() {
   const [storedValue, setStoredValue] = useLocalStorage('isNominated', false)
 
   useEffect(() => {
-    Axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=cfb96976')
+    Axios.get('https://www.omdbapi.com/?i=tt3896198&apikey=cfb96976')
     .then(({data}) => {
       if(storedValue) {
         setMovie({...data, isNominated: true})
