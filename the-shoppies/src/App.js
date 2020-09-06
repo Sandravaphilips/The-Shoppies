@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { Heading, Flex, ThemeProvider, CSSReset, Spinner } from '@chakra-ui/core';
 import SearchTab from './components/SearchTab';
 import SearchResultsTab from './components/SearchResultsTab';
 import NominationsTab from './components/NominationsTab';
+import useLocalStorage from './hooks/useLocaleStorage';
 import './App.css';
-import { Heading, Flex, ThemeProvider, CSSReset, Spinner } from '@chakra-ui/core';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState({});
   const [movie, setMovie] = useState({});
   const [isDisabled, setIsDisabled] = useState(false);
+  const [storedValue, setStoredValue] = useLocalStorage('isNominated', false)
 
   useEffect(() => {
     Axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=cfb96976')
     .then(({data}) => {
-      setMovie({...data, isNominated: false})
+      if(storedValue) {
+        setMovie({...data, isNominated: true})
+        setIsDisabled(true)
+      } else setMovie({...data, isNominated: false})
     })
     .catch(err => console.log(err))
   }, [])
@@ -28,12 +33,14 @@ function App() {
       e.preventDefault()
       movie.isNominated =  true
       setIsDisabled(!isDisabled)
+      setStoredValue(true)
   }
 
   const onRemove = e => {
       e.preventDefault()
       movie.isNominated = false;
       setIsDisabled(!isDisabled)
+      setStoredValue(false)
   }
 
   return (    
