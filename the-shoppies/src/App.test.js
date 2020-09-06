@@ -1,9 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import * as rtl  from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+let tools;
+
+beforeEach(() => {
+  rtl.cleanup();
+  tools = rtl.render(<App />);
+});
+
+test('renders the header', () => {
+  const header = tools.getByText(/The Shoppies/i);
+  expect(header).toBeInTheDocument();
 });
