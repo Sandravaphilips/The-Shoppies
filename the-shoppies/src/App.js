@@ -48,7 +48,7 @@ function App() {
       <div className="App">
         <Heading>The Shoppies</Heading>
         <SearchTab onChange={onChange} searchTerm={searchTerm} />
-        <Flex>
+        <Flex className='flex' justify='space-between'>
           <SearchResultsTab isDisabled={isDisabled} onNominate={onNominate} movie={movie} setSearchResult={setSearchResult} searchTerm={searchTerm} searchResult={searchResult} />
           <NominationsTab movie={movie} onRemove={onRemove} />
         </Flex>
