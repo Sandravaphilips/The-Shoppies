@@ -26,7 +26,7 @@ export default ({searchTerm, searchResult, setSearchResult, movie, isDisabled, o
     return(
         <Box className='tab box-tab'>
             <Heading>Results for "{searchTerm}"</Heading>
-            <List>                
+            <List styleType="disc">                
                 <ListItem>
                     {searchResult.Title} ({searchResult.Year}) 
                     <Button isDisabled={isDisabled} size='xs' onClick={onNominate} >Nominate</Button>

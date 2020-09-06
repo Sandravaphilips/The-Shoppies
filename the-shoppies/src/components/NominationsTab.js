@@ -17,7 +17,7 @@ export default ({movie, onRemove}) => {
             }
             {
                 movie.isNominated && (
-                    <List>
+                    <List styleType="disc">
                         <ListItem>
                             {movie.Title} ({movie.Year}) 
                             <Button size='xs' onClick={onRemove}>Remove</Button>
