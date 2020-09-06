@@ -36,22 +36,27 @@ function App() {
       setIsDisabled(!isDisabled)
   }
 
-  if(!movie.Title) {
-    return(
-      <Spinner />
-    )
-  }
-
   return (    
     <ThemeProvider>
       <CSSReset />
       <div className="App">
         <Heading>The Shoppies</Heading>
         <SearchTab onChange={onChange} searchTerm={searchTerm} />
-        <Flex className='flex' justify='space-between'>
-          <SearchResultsTab isDisabled={isDisabled} onNominate={onNominate} movie={movie} setSearchResult={setSearchResult} searchTerm={searchTerm} searchResult={searchResult} />
-          <NominationsTab movie={movie} onRemove={onRemove} />
-        </Flex>
+        {
+          movie.Title ? (
+            <Flex className='flex' justify='space-between'>
+              <SearchResultsTab isDisabled={isDisabled} onNominate={onNominate} movie={movie} setSearchResult={setSearchResult} searchTerm={searchTerm} searchResult={searchResult} />
+              <NominationsTab movie={movie} onRemove={onRemove} />
+            </Flex>
+          ) : <Flex justify='center' marginTop='50px'>
+                <Spinner thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    size="xl" 
+                    justifySelf='center'
+                  />
+              </Flex>
+        }
       </div>
     </ThemeProvider>
     
