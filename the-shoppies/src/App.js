@@ -4,7 +4,7 @@ import { Heading, Flex, ThemeProvider, CSSReset, Spinner } from '@chakra-ui/core
 import SearchTab from './components/SearchTab';
 import SearchResultsTab from './components/SearchResultsTab';
 import NominationsTab from './components/NominationsTab';
-import useLocalStorage from './hooks/useLocaleStorage';
+import useLocalStorage from './hooks/useLocalStorage';
 import './App.css';
 
 function App() {
