@@ -10,22 +10,22 @@ export default ({searchTerm, searchResult, setSearchResult, movie, isDisabled, o
 
     if(!searchTerm) {
         return(
-            <Box>
-                <Heading as='h4' size='lg'>Start by searching for your favourite movie</Heading>
+            <Box className='tab box-tab'>
+                <Heading as='h4' size='md'>Start by searching for your favourite movie</Heading>
             </Box>
         )
     }
 
     if(searchTerm && !searchResult.Title) {
         return(
-            <Box>
-                <Heading as='h4' size='lg'>Oops! No movies match your search</Heading>
+            <Box className='tab box-tab'>
+                <Heading as='h4' size='md'>Oops! No movies match your search</Heading>
             </Box>
         )
     }
 
     return(
-        <Box>
+        <Box className='tab box-tab'>
             <Heading>Results for "{searchTerm}"</Heading>
             <List>                
                 <ListItem>

@@ -8,7 +8,7 @@ export default ({movie, onRemove}) => {
     }, [movie.isNominated])
     
     return(
-        <Box>
+        <Box className='tab box-tab'>
             <Heading>Nominations</Heading>
             {
                 !movie.isNominated && (

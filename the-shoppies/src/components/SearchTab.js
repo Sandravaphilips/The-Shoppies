@@ -3,11 +3,11 @@ import { Box, Heading, InputGroup, InputLeftElement, Icon, Input } from '@chakra
 
 export default ({searchTerm, onChange}) => {
     return(
-        <Box>
+        <Box className='tab'>
             <Heading as='h5' size='sm'>Movie title</Heading>
-            <InputGroup>
+            <InputGroup className='search'>
                 <InputLeftElement children={<Icon name="search" color="gray.300" />} />
-                <Input type='text' placeholder='Start typing' value={searchTerm} onChange={onChange} />
+                <Input type='text' placeholder='Start typing...' value={searchTerm} onChange={onChange} />
             </InputGroup>
         </Box>
     )
