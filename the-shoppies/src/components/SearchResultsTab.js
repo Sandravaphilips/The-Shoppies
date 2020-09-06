@@ -29,7 +29,7 @@ export default ({searchTerm, searchResult, setSearchResult, movie, isDisabled, o
             <List styleType="disc">                
                 <ListItem>
                     {searchResult.Title} ({searchResult.Year}) 
-                    <Button isDisabled={isDisabled} size='xs' onClick={onNominate} >Nominate</Button>
+                    <Button data-testid='searchResultsButton' isDisabled={isDisabled} size='xs' onClick={onNominate} >Nominate</Button>
                 </ListItem>
                 
             </List>
