@@ -1,12 +1,7 @@
 import React, { useEffect } from 'react';
 import { Box, Heading, List, ListItem, Button } from "@chakra-ui/core";
 
-export default ({movie, onRemove}) => {
-
-    useEffect(() => {
-        return
-    }, [movie.isNominated])
-    
+export default ({movie, onRemove}) => {    
     return(
         <Box className='tab box-tab'>
             <Heading>Nominations</Heading>
@@ -20,7 +15,7 @@ export default ({movie, onRemove}) => {
                     <List styleType="disc">
                         <ListItem>
                             {movie.Title} ({movie.Year}) 
-                            <Button size='xs' onClick={onRemove}>Remove</Button>
+                            <Button data-testid='nominationsButton' size='xs' onClick={onRemove}>Remove</Button>
                         </ListItem>
                     </List>
                 )
