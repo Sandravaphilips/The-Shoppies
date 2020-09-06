@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Box, Heading, List, ListItem, Button } from '@chakra-ui/core';
 
 export default ({searchTerm, searchResult, setSearchResult, movie, isDisabled, onNominate}) => {
     
     useEffect(() => {
-        searchTerm && movie.Title.toLowerCase().includes(searchTerm.toLowerCase()) ? setSearchResult(movie) : setSearchResult({})
-        
-    }, [searchTerm])
+        searchTerm && movie.Title.toLowerCase().includes(searchTerm.toLowerCase()) ? setSearchResult(movie) : setSearchResult({})        
+    }, [searchTerm, movie])
 
     if(!searchTerm) {
         return(
