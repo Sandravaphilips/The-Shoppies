@@ -46,28 +46,32 @@ function App() {
   return (    
     <ThemeProvider>
       <CSSReset />
-      <div className="App">
-        <Heading>The Shoppies</Heading>
-        <SearchTab onChange={onChange} searchTerm={searchTerm} />
-        {
-          movie.Title ? (
-            <Flex className='flex' justify='space-between'>
-              <SearchResultsTab isDisabled={isDisabled} onNominate={onNominate} movie={movie} setSearchResult={setSearchResult} searchTerm={searchTerm} searchResult={searchResult} />
-              <NominationsTab movie={movie} onRemove={onRemove} />
-            </Flex>
-          ) : <Flex justify='center' marginTop='50px'>
-                <Spinner thickness="4px"
-                    speed="0.65s"
-                    emptyColor="gray.200"
-                    size="xl" 
-                    justifySelf='center'
-                  />
+      <div>
+        <section className="App">
+          <Heading>The Shoppies</Heading>
+          <SearchTab onChange={onChange} searchTerm={searchTerm} />
+          {
+            movie.Title ? (
+              <Flex className='flex' justify='space-between'>
+                <SearchResultsTab isDisabled={isDisabled} onNominate={onNominate} movie={movie} setSearchResult={setSearchResult} searchTerm={searchTerm} searchResult={searchResult} />
+                <NominationsTab movie={movie} onRemove={onRemove} />
               </Flex>
-        }
+            ) : <Flex justify='center' marginTop='50px'>
+                  <Spinner thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      size="xl" 
+                      justifySelf='center'
+                    />
+                </Flex>
+          }
+        </section>
+        <footer>
+          <p>&copy; Sandrava Philips</p>
+        </footer>
       </div>
-    </ThemeProvider>
-    
+    </ThemeProvider>    
   );
-}
+};
 
 export default App;
