@@ -6,7 +6,7 @@ export default ({searchTerm, onChange}) => {
         <Box className='tab'>
             <Heading as='h5' size='sm'>Movie title</Heading>
             <InputGroup className='search'>
-                <InputLeftElement children={<Icon name="search" color="gray.300" />} />
+                <InputLeftElement children={<Icon id='left-icon' name="search" color="gray.300" />} />
                 <Input type='text' placeholder='Start typing...' value={searchTerm} onChange={onChange} />
             </InputGroup>
         </Box>
